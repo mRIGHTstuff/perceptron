@@ -29,7 +29,7 @@ class Perceptron:
 		error = desired_output - guess
 
 		for x in range(0, len(self.weights)):
-			self.weights[x] += error*inuts[x]*self.speed
+			self.weights[x] += error*inputs[x]*self.speed
 
 class Trainer:
 
@@ -52,3 +52,10 @@ class Trainer:
 				answer = -1
 				self.perceptron.train([x_coord, y_coord,1], answer)
 		return self.perceptron # return our trained perceptron
+
+trainer = Trainer()
+p = trainer.train()
+
+x_map = float(raw_input("Enter an x coordinate: "))
+y_map = float(raw_input("Enter a y coordinate: "))
+print p.feed_forward([x_map,y_map,1])
